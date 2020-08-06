@@ -10,10 +10,6 @@ export default class Map extends Component {
         this.peopleRowCount = 10;
     }
 
-    componentDidMount() {
-        
-    }
-
     populateMap() {
         for(let c = 0; c < this.peopleColumnCount; c++) {
             this.people[c] = [];

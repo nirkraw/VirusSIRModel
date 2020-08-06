@@ -13,7 +13,6 @@ export default class Canvas extends Component {
     }
 
     drawMap() {
-        debugger
         for(let c = 0; c < this.props.peopleColumnCount; c++) {
             for (let r = 0; r < this.props.peopleRowCount; r++) {
                 let person = this.props.people[c][r];
@@ -26,8 +25,23 @@ export default class Canvas extends Component {
         }
     }
 
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        for (let c = 0; c < this.props.peopleColumnCount; c++) {
+          for (let r = 0; r < this.props.peopleRowCount; r++) {
+            let person = this.props.people[c][r];
+
+            this.ctx.beginPath();
+            this.ctx.rect(person.x, person.y, person.width, person.height);
+            this.ctx.fillStyle = person.color;
+            this.ctx.fill();
+            this.ctx.closePath();
+          }
+        }
+    }
+
     render() {
-        
+        if (this.ctx) this.draw();
         return (
           <div>
             <canvas ref="canvas" id="canvas"></canvas>

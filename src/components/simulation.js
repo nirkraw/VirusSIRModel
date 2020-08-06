@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Canvas from "./canvas";
+import SimulationCSS from "../style/simulation.css"
 
 export default class Simulation extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class Simulation extends Component {
       virality: 10,
       totalDeaths: 0,
       confirmedCases: 0,
-      recovered: 0,
+      recoveredCases: 0,
       people: this.props.people
     };
 
@@ -139,42 +140,50 @@ export default class Simulation extends Component {
     }
     return (
       <div>
-        <label>
-          Virality
-          <input
-            type="number"
-            min="1"
-            max="100"
-            className="virality-input"
-            value={this.state.virality}
-            onChange={this.updateVirality}
-          />
-        </label>
-        <label>
-          Mortality
-          <input
-            type="number"
-            min="1"
-            max="100"
-            className="mortality-rate-input"
-            value={this.state.mortality}
-            onChange={this.updateMortality}
-          />
-        </label>
-        {!this.state.simulationActive ? (
-          <button onClick={this.startSimulation}>Start Simulation</button>
-        ) : (
-          <div></div>
-        )}
-        <button onClick={() => window.location.reload()}>New Simulation</button>
-        <h1>Total Deaths: {this.state.totalDeaths}</h1>
-        <h1>Confirmed Cases: {this.state.confirmedCases}</h1>
-        <h1>Total Recovered : {this.state.recoveredCases}</h1>
+        <div className="inputs-div">
+          <label className="virality-label">
+            Virality
+            <input
+              type="number"
+              min="1"
+              max="100"
+              className="virality-input"
+              value={this.state.virality}
+              onChange={this.updateVirality}
+            />
+          </label>
+          <label className="mortality-label">
+            Mortality
+            <input
+              type="number"
+              min="1"
+              max="100"
+              className="mortality-input"
+              value={this.state.mortality}
+              onChange={this.updateMortality}
+            />
+          </label>
+        </div>
+        <div className="buttons">
+          {!this.state.simulationActive ? (
+            <button onClick={this.startSimulation}>Start Simulation</button>
+          ) : (
+            <div></div>
+          )}
+          <button onClick={() => window.location.reload()}>
+            New Simulation
+          </button>
+        </div>
         <Canvas
           people={this.state.people}
           peopleColumnCount={this.props.peopleColumnCount}
           peopleRowCount={this.props.peopleRowCount}
         />
+        <div className="stats">
+          <h2>Total Deaths: {this.state.totalDeaths}</h2>
+          <h2>Confirmed Cases: {this.state.confirmedCases}</h2>
+          <h2>Total Recovered : {this.state.recoveredCases}</h2>
+        </div>
       </div>
     );
   }

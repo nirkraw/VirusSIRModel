@@ -1,0 +1,35 @@
+.inputs-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.virality-input, .mortality-input {
+    margin-left: 10px;
+}
+
+.virality-label, .mortality-label {
+    font-size: 20px;
+}
+
+.buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons > button {
+    height: 30px;
+    width: 140px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.buttons > button:hover {
+    cursor: pointer;
+    background-color: wheat;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,36 @@
+.legend-div {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.category-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.blue-box, .red-box, .green-box, .black-box {
+    height: 15px;
+    width: 15px;
+    margin-left: 10px;
+}
+
+.blue-box {
+    background-color:blue;
+}
+
+.red-box {
+    background-color:red;
+}
+
+.green-box {
+    background-color:green;
+}
+
+.black-box {
+    background-color:black;
+}

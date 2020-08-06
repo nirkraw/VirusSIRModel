@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Canvas from "./canvas";
 import SimulationCSS from "../style/simulation.css"
+import Legend from "./legend"
 
 export default class Simulation extends Component {
   constructor(props) {
@@ -185,6 +186,7 @@ export default class Simulation extends Component {
           <h2>Confirmed Cases: {this.state.confirmedCases}</h2>
           <h2>Total Recovered : {this.state.recoveredCases}</h2>
         </div>
+        <Legend />
       </div>
     );
   }

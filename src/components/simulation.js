@@ -53,7 +53,7 @@ export default class Simulation extends Component {
             person.terminalCase = true;
           }
           currentInfected++;
-          if (
+          if ( //move all infected people using their randomized dx/dy property, when reaching edge reverse direction
             person.x + person.dx > this.canvas.width ||
             person.x + person.dx < 0
           ) {
@@ -80,6 +80,7 @@ export default class Simulation extends Component {
         }
       }
     }
+    // The stat accumulation could be done in a seperate method but it would require looping through people again every frame
     if (currentInfected === 0) {
       this.setState({
         simulationActive: false,

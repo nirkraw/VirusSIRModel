@@ -22,9 +22,15 @@ export default class Map extends Component {
                 let person = this.people[c][r];
                 person.x = r * (person.width + person.paddingLeft) + person.offsetLeft;
                 person.y = c * (person.height + person.paddingTop) + person.offsetTop;
+                this.assignRandomStartingInfections(person);
             }
         }
- 
+    }
+
+    assignRandomStartingInfections(person) {
+        if((Math.random(10)) < .03) { //assign aprox 3% of population with variance 
+            person.color = "red"
+        }
     }
 
     render() {

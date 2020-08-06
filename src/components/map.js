@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Canvas from "./canvas";
 import People from "./people";
+import Simulation from "./simulation";
 
 export default class Map extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ export default class Map extends Component {
     }
 
     assignRandomStartingInfections(person) {
-        if((Math.random(10)) < .03) { //assign aprox 3% of population with variance 
+        if((Math.random()) < .03) { //assign aprox 3% of population with variance 
             person.color = "red"
         }
     }
@@ -36,11 +36,13 @@ export default class Map extends Component {
     render() {
         this.populateMap();
         return (
-            <div>
-                <Canvas people = {this.people}
-                peopleColumnCount ={this.peopleColumnCount}
-                peopleRowCount = {this.peopleRowCount}/>
-            </div>
-        )
+          <div>
+            <Simulation
+              people={this.people}
+              peopleColumnCount={this.peopleColumnCount}
+              peopleRowCount={this.peopleRowCount}
+            />
+          </div>
+        );
     }
 }

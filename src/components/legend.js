@@ -14,7 +14,7 @@ export default class Legend extends Component {
               <div className="red-box"></div>
             </div>
             <div className="category-div">
-              <h3>Removed</h3>
+              <h3>Recovered</h3>
               <div className="green-box"></div>
             </div>
             <div className="category-div">
